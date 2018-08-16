@@ -222,7 +222,7 @@ module.exports = function DWGuide(dispatch) {
 	
 	dispatch.hook('S_SPAWN_NPC', 8, (event) => {
 		if(!enabled || !boss) return;
-		if(event.huntingZoneId != 11796946) return;
+		//if(event.huntingZoneId != 11796946) return; // 466 ?
 		//46621 clockwise ball
 		//46622 counterclockwise ball
 		if(event.templateId == 46621){
