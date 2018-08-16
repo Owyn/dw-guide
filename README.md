@@ -24,6 +24,8 @@ type dw or !dw to enable(default) or disable this module
 
 type dw.party or !dw.party to switch the call out message to yourself only(default) or party.
 
+type dw.circles to send circle count after each circles-attack to party chat (off by default)
 
 
-Last Updated: May 3rd, 2018
+
+Last Updated: 17.08.2018
