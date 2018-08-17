@@ -62,7 +62,7 @@ module.exports = function DWGuide(dispatch) {
 	
 	function sendMessageC(msg) {
 		setTimeout(function(){
-		dispatch.toClient('C_CHAT', 1, {
+		dispatch.toServer('C_CHAT', 1, {
 			channel: 1, //21 = p-notice, 1 = party
 			message: msg
 		});	}, 3500);
@@ -161,20 +161,17 @@ module.exports = function DWGuide(dispatch) {
 				sendMessage('OUT');
 				circlecount = 0;
 			}
-			if (event.skill==1171391776 || event.skill==1171391778 || event.skill==1171391780 || event.skill==1171391782) {
+			else if (event.skill==1171391776 || event.skill==1171391778 || event.skill==1171391780 || event.skill==1171391782) {
 				sendMessage('IN');
 				circlecount = 0;
 			}
-			if(sendToPartyC)
-			{
-				if (event.skill >= 1171391770 && event.skill <= 1171391774) {
-					circlecount += (event.skill - 1171391770) + 1;
-					sendMessageC(circlecount);
-				}
-				if (event.skill >= 1171391783 && event.skill <= 1171391787) {
-					circlecount += (event.skill - 1171391783) + 1;
-					sendMessageC(circlecount);
-				}
+			else if (sendToPartyC && event.skill >= 1171391770 && event.skill <= 1171391774) {
+				circlecount += (event.skill - 1171391770) + 1;
+				sendMessageC(circlecount);
+			}
+			else if (sendToPartyC && event.skill >= 1171391783 && event.skill <= 1171391787) {
+				circlecount += (event.skill - 1171391783) + 1;
+				sendMessageC(circlecount);
 			}
 		}
 		else if (event.templateId == DEMOROS) {
