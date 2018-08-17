@@ -61,10 +61,11 @@ module.exports = function DWGuide(dispatch) {
 	}
 	
 	function sendMessageC(msg) {
+		setTimeout(function(){
 		dispatch.toClient('C_CHAT', 1, {
 			channel: 1, //21 = p-notice, 1 = party
 			message: msg
-		});	
+		});	}, 3500);
 	}
 		
 	dispatch.hook('S_BOSS_GAGE_INFO', 3, (event) => {
@@ -168,15 +169,16 @@ module.exports = function DWGuide(dispatch) {
 			{
 				if (event.skill >= 1171391770 && event.skill <= 1171391774) {
 					circlecount += (event.skill - 1171391770) + 1;
-					setTimeout(function(){ sendMessageC(`${circlecount}`);}, 3500);
+					sendMessageC(circlecount);
 				}
 				if (event.skill >= 1171391783 && event.skill <= 1171391787) {
 					circlecount += (event.skill - 1171391783) + 1;
-					setTimeout(function(){ sendMessageC(`${circlecount}`);}, 3500);
+					sendMessageC(circlecount);
 				}
 			}
 		}
-		if (event.templateId == DEMOROS) {
+		else if (event.templateId == DEMOROS) {
+			event.skill = newtoold(event.skill); // there, fixed the guide :ok_hand:
 			//systemMessage(''+event.skill);
 			//1171391577 Laser, 4 times
 			if (event.skill==1171391577 || event.skill==1171392577) {
