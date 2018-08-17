@@ -81,10 +81,9 @@ module.exports = function DWGuide(dispatch) {
 				circlecount = 0;
 			}
 		}
-		else
+		else if(boss)
 		{
 			boss = null;
-			command.message("OTHER BOSS");
 		}
 	});
 	
