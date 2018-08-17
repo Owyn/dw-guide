@@ -1,3 +1,5 @@
 {
-	"disableAutoUpdate": false
+	"disableAutoUpdate": false,
+	"servers": ["https://raw.githubusercontent.com/Owyn/dw-guide/master/"],
+	"supportUrl": "https://github.com/Owyn/dw-guide/issues"
 }
