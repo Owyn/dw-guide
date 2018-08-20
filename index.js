@@ -64,8 +64,8 @@ module.exports = function DWGuide(dispatch) {
 		setTimeout(function(){
 		dispatch.toServer('C_CHAT', 1, {
 			channel: 1, //21 = p-notice, 1 = party
-			message: msg
-		});	}, 3500);
+			message: String(msg)
+		});	}, 3800);
 	}
 		
 	dispatch.hook('S_BOSS_GAGE_INFO', 3, (event) => {
