@@ -15,8 +15,7 @@ const dices = {
 //Demoros: Blue? Not Blue? Red? Not Red? White? Not White? Hit everything
 
 module.exports = function DWGuide(dispatch) {
-	const Command = require('command');
-	const command = Command(dispatch);
+	const command = dispatch.command;
 	let boss = null;
 	let ball = null;
 	let x;
@@ -52,9 +51,9 @@ module.exports = function DWGuide(dispatch) {
 				message: msg
 			});
 		} else {
-			dispatch.toClient('S_CHAT', 2, {
+			dispatch.toClient('S_CHAT', 3, {
 				channel: 21, //21 = p-notice, 1 = party
-				authorName: 'DW-Guide',
+				name: 'DW-Guide',
 				message: msg
 			});
 		}		
@@ -124,7 +123,7 @@ module.exports = function DWGuide(dispatch) {
 		return raw
 	}
 	
-	dispatch.hook('S_ACTION_STAGE', 6, (event) => {
+	dispatch.hook('S_ACTION_STAGE', 9, (event) => {
 		if (!enabled || !boss) return;
 		
 		if (event.templateId == BANDERSNATCH) {
@@ -218,7 +217,7 @@ module.exports = function DWGuide(dispatch) {
 		}
 	});
 	
-	dispatch.hook('S_SPAWN_NPC', 8, (event) => {
+	dispatch.hook('S_SPAWN_NPC', 11, (event) => {
 		if(!enabled || !boss) return;
 		//if(event.huntingZoneId != 11796946) return; // 466 ?
 		//46621 clockwise ball
@@ -233,7 +232,7 @@ module.exports = function DWGuide(dispatch) {
 		}
 	});
 	
-	dispatch.hook('S_DESPAWN_NPC', 2, (event) => {
+	dispatch.hook('S_DESPAWN_NPC', 3, (event) => {
 		if(!enabled || !boss || !ball) return;
 		if(event.gameId - ball.gameId == 0){
 			x = event.x;

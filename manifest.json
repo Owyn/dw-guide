@@ -1,15 +1,15 @@
 {
 	"files": {
 		"README.md": "309b554ad222a42ce105be225a95560851595be4feea678ad89c7baff0017d0b",
-		"index.js": "0967211b065751715231a0a0df1487a4996eed6d8aa5a6901441cd00855dd8df",
+		"index.js": "b036cfc1f639917e527575f841ab81856a612ab55a4aade998fcb02d0b6816e3",
 		"module.json": "93ceda601048a412c0df0090115c0ecb3c8102460d9421edd546b66096ec44f0"
 	},
 	"defs": {
 		"C_CHAT": 1,
-		"S_ACTION_STAGE": 6,
+		"S_ACTION_STAGE": 9,
 		"S_BOSS_GAGE_INFO": 3,
-		"S_CHAT": 2,
-		"S_DESPAWN_NPC": 2,
-		"S_SPAWN_NPC": 8
+		"S_CHAT": 3,
+		"S_DESPAWN_NPC": 3,
+		"S_SPAWN_NPC": 11
 	}
 }
